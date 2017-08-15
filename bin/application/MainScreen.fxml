@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+  <tabs>
+    <Tab fx:id="test" text="Game">
+         <content>
+            <HBox>
+               <children>
+              <AnchorPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#mouseClicked" prefHeight="371.0" prefWidth="371.0" />
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="229.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Timer">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="mainTimer" layoutX="56.0" layoutY="14.0" text="00:00">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="18.0" layoutY="57.0" text="Player X">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="143.0" layoutY="57.0" text="Player O">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="playerOneImage" fitHeight="80.0" fitWidth="80.0" layoutX="14.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="playerTwoImage" fitHeight="80.0" fitWidth="80.0" layoutX="138.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="130.0" layoutY="14.0" text="Max">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="maxTimeLabel" layoutX="169.0" layoutY="14.0" text="Infinite">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="winText" layoutX="6.0" layoutY="238.0" prefHeight="43.0" prefWidth="217.0" textAlignment="RIGHT">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </content>
+    </Tab>
+    <Tab text="Options">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Grid size">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="gridSizeSlider" blockIncrement="1.0" layoutX="76.0" layoutY="17.0" majorTickUnit="1.0" max="10.0" min="3.0" minorTickCount="1" value="3.0" />
+                  <CheckBox fx:id="gameTimerCheckBox" layoutX="14.0" layoutY="46.0" mnemonicParsing="false" text="Game timer?">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="playerOneBotBox" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" text="Player One Bot?">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="playerTwoBotBox" layoutX="146.0" layoutY="85.0" mnemonicParsing="false" text="Player Two Bot?">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </CheckBox>
+                  <Label fx:id="gridSizeLabel" layoutX="224.0" layoutY="16.0" text="3">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="134.0" text="Pawn sets">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <RadioButton layoutX="14.0" layoutY="166.0" mnemonicParsing="false" selected="true" text="Set 1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="pawnSets" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton layoutX="14.0" layoutY="192.0" mnemonicParsing="false" text="Set 2" toggleGroup="$pawnSets">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton layoutX="14.0" layoutY="218.0" mnemonicParsing="false" text="Set 3" toggleGroup="$pawnSets">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <Button layoutX="19.0" layoutY="332.0" mnemonicParsing="false" onAction="#createNewGame" text="New game">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="534.0" layoutY="335.0" mnemonicParsing="false" onAction="#exitGame" text="Exit">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Slider fx:id="gameTimeSlider" blockIncrement="1.0" layoutX="127.0" layoutY="50.0" max="2000.0" min="10.0" value="10.0" />
+                  <Label fx:id="gameTimeLabel" layoutX="270.0" layoutY="49.0" text="10 seconds" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
